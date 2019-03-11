@@ -9,17 +9,29 @@
 		<script src="js/bootstrap.min.js"></script>
 		<title>HINDUSTAN WELLNESS 3</title>
 		<script>
-		function hideTabOnMobileLead() {
-        $(".showLeadMobileForm").hide();
+		function hideTabOnMobile() {
+        $(".showMobileForm").hide();
 		 $(".popupCloseButton").hide();
 		}
-
-    function tabOnMobileLead() {
-        $(".showLeadMobileForm").show();
-	    $(".popupCloseButton").show();
-
-				
+        function tabOnMobile() {
+        $(".showMobileForm").show();
+	    $(".popupCloseButton").show();			
     }
+	
+	$( window ).resize( function() {
+		  if( $( window ).width() > 992) {
+			 $(".showMobileForm").show();
+			 $(".frm3").css("backgroundColor", "transparent");
+			 $("form").css("marginTop", "5px");
+			 $('.popupCloseButton').hide();			
+		  }
+		  else{
+		  	$(".frm3").css("backgroundColor", "rgba(0,0,0,.4)");
+			$(".popupCloseButton").show();			
+		  }
+		  
+		
+		});
 	</script>
 	</head>
 	<body>
@@ -58,17 +70,17 @@
 				<div class="row">
 					<div class="col-sm-12 col-lg-4 col-12 e2">
 					<form class="frm3">
-						<div class="popupCloseButton" id="popup"  onClick="hideTabOnMobileLead();">X</div>
-						 <div class="form-group field1 showLeadMobileForm">
+						<div class="popupCloseButton" id="popup"  onClick="hideTabOnMobile();">X</div>
+						 <div class="form-group field1 showMobileForm">
 							<input type="full name" class="form-control" placeholder="Full Name*">
 						 </div>
-						 <div class="form-group field2 showLeadMobileForm">
+						 <div class="form-group field2 showMobileForm">
 							<input type="email" class="form-control" placeholder="Email*">
 						</div>
 						<div class="form-group field3 ">
-							<input type="number" class="form-control" placeholder="Mobile Number*" onClick="tabOnMobileLead();">
+							<input type="number" class="form-control" placeholder="Mobile Number*" onClick="tabOnMobile();">
 						</div>
-						<div class="form-group field4 showLeadMobileForm">
+						<div class="form-group field4 showMobileForm">
 							<select class="form-control" style="background-color:#eeefef;">
 							  <option>Select your City</option>
 							  <option>Delhi</option>
